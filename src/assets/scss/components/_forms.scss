@@ -1,0 +1,49 @@
+input, input[type="text"], input[type="email"], input[type="number"], textarea, textarea[type="text"] {
+	color: $white;
+	background: rgba($black, 0.3);
+	box-shadow: none;
+	font-size: 18px;
+	font-family: 'Karla', "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-weight: 400;
+	border: solid 3px $white;
+   height: 50px;
+   border-radius: 25px;
+   padding: 0 25px;
+	blackground: $white;
+	&:hover, &:focus, &:active{
+		border: solid 3px $white;
+		color: $white;
+		font-weight: 400;
+		background: rgba($black, 0.3);
+	}
+}
+button, button.disabled, button[disabled], .button, .button.disabled, .button[disabled] {
+	color: $black;
+	background: $white;
+	border: solid 3px $white;
+	opacity: 1;
+	padding: 0;
+   width: 100%;
+   border-radius: 25px;
+	@include css-transition($fast-transition);
+	&:hover, &:focus, &:active{
+		color: $white;
+		background: rgba($black, 0.3);
+		border: solid 3px $white;
+		opacity: 1;
+	}
+}
+
+@include breakpoint(medium) {
+   input, input[type="text"], input[type="email"], input[type="number"], textarea, textarea[type="text"] {
+      border-radius: 25px 0 0 25px;
+   }
+   button, button.disabled, button[disabled], .button, .button.disabled, .button[disabled] {
+      border-radius: 0 25px 25px 0;
+      border-left: none;
+      &:hover, &:focus, &:active{
+         border-left: none;
+      }
+   }
+
+ }

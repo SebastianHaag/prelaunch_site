@@ -1,0 +1,124 @@
+.fullWidth{
+   max-width: 100% !important;
+}
+
+body{
+   background-color: $black;
+   overflow-x: hidden;
+}
+header{
+      min-height: 100%;
+      background: 50% 50% no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+   video{
+      width: 100%;
+      position: absolute;
+      &#vidBg{
+         display: block;
+         top: 50%;
+         left: 50%;
+         width: auto;
+         height: auto;
+         transform: translateX(-50%) translateY(-50%);
+         opacity: 0.4;
+         filter: blur(15px);
+      }
+   }
+   #vidOverlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      #logo{
+         padding-top: 100px;
+         padding-bottom: 0px;
+         opacity: 0;
+         @include css-transition($normal-transition);
+         transition-delay: 0.3s;
+         &.loaded{
+            padding-top: 60px;
+            padding-bottom: 20px;
+            opacity: 1;
+         }
+         img{
+            max-width: 400px;
+            max-height: 400px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 100;
+         }
+      }
+      #topText{
+         padding-top: 40px;
+         h1{
+            opacity: 0;
+            @include css-transition($slow-transition);
+            transition-delay: 0.2s;
+         }
+         &.loaded{
+            padding-top: 30px;
+            h1{
+               opacity: 1;
+            }
+         }
+      }
+      #newsletterForm{
+         opacity: 0;
+         padding: 30px 0 60px 0;
+         @include css-transition($slow-transition);
+         transition-delay: 0.25s;
+         &.loaded{
+            opacity: 1;
+         }
+      }
+   }
+}
+
+section{
+   position: relative;
+   height: 100%;
+   &#pos{
+      background-color: $white;
+      height: 100%;
+      h2{
+         color: $black;
+      }
+   }
+   &#next{
+      background-color: $white;
+      height: 100%;
+      h2{
+         color: $black;
+      }
+   }
+}
+footer{
+   height: 210px;
+   background-color: $gray;
+   .logo{
+      height: 210px;
+      background-color: #64FFDA;
+   }
+}
+
+@include breakpoint(large) {
+   header{
+      height: 100%;
+   }
+   section{
+      &#pos{
+         .innerContainer{
+            position: absolute;
+            width: calc(100% - 60px);
+            margin-top: -30px;
+            @include css-transition($fast-transition);
+            transition-delay: 1s;
+         }
+         &.loaded{
+            .innerContainer{
+               margin-top: 0px;
+            }
+         }
+      }
+   }
+}
